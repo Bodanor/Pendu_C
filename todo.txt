@@ -3,3 +3,5 @@
 3) Ajouter les commentaires
 4) Ajouter une sauvegarde a chaque actions 
 5) ajouter un score ou une pourcentage de mot deja fait
+6) Implementer un systeme pour racheter des vies et revenir en arrière sur le mot 
+7) ajouter un systeme qui permet de ne pas generer un IndexTable si il y en a un qui existe deja
