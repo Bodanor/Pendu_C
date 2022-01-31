@@ -63,12 +63,6 @@ int check_input(word_t* word_table, char **input, char **progress_word)
             strcpy(*progress_word, word_table->wordToGuess);
             return 0;
         }
-        else
-        {
-            for (i = 0; i < word_table->wordSize; i++)
-                *(*progress_word + i) = '_';
-            return -1;
-        }
     }
     else if (strlen(*input) == 1)
     {
