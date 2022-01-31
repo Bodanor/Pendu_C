@@ -45,7 +45,6 @@ int main()
     {
         found = 0;
         chooseRandomWord(word_table, &progress_word, &input);
-        printf("%s\n", word_table->wordToGuess);
         for (tries = 10; tries > 0 && found != 1; tries--)
         {
             printf("Tries left :\t%d\n\n", tries);
