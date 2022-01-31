@@ -47,8 +47,8 @@ int main()
         chooseRandomWord(word_table, &progress_word, &input);
         for (tries = 10; tries > 0 && found != 1; tries--)
         {
-            printf("Tries left :\t%d\n\n", tries);
-            printf("Word -->\t%s", progress_word);
+            printf("\nWord -->\t%s", progress_word);
+            printf("\t\tTries left :\t%d", tries);
             printf("\nYour -->\t");
             scanf(" %s", input);
             if (check_input(word_table, &input, &progress_word) == 0)

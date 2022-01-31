@@ -1,3 +1,5 @@
-1) Modifier le jeu car pour le moment ou doit completer guess le mot alors que l'on doit plustot donner des lettres et ca complete
+1) Implementer secure input et une valeur de retour pour savoir si on a entrer plus de 2 char
 2) Ajouter les free
 3) Ajouter les commentaires
+4) Ajouter une sauvegarde a chaque actions 
+5) ajouter un score ou une pourcentage de mot deja fait
