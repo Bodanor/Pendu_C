@@ -1,0 +1,3 @@
+1) Modifier le jeu car pour le moment ou doit completer guess le mot alors que l'on doit plustot donner des lettres et ca complete
+2) Ajouter les free
+3) Ajouter les commentaires
