@@ -44,8 +44,9 @@ int main()
     while (replay == 1)
     {
         found = 0;
+        tries = 10;
         chooseRandomWord(word_table, &progress_word, &input);
-        for (tries = 10; tries > 0 && found != 1; tries--)
+        while ( tries > 0 && found != 1)
         {
             printf("\nWord -->\t%s", progress_word);
             printf("\t\tTries left :\t%d", tries);
@@ -55,10 +56,9 @@ int main()
             if (status == 0)
                 found = 1;
             else if (status == -2)
-            {
                 printf("Either enter one char our the whole word !\n");
-                tries++;
-            }
+            else if (status == -1)
+                tries--;
 
         }
         if (found)

@@ -54,7 +54,7 @@ int chooseRandomWord(word_t* word_table, char **progress_word, char **input)
 int check_input(word_t* word_table, char **input, char **progress_word)
 {
     assert(word_table != NULL && input != NULL);
-    int i;
+    int i, foundone = 0;
 
     if (strlen(word_table->wordToGuess) == strlen(*input))
     {
@@ -69,12 +69,17 @@ int check_input(word_t* word_table, char **input, char **progress_word)
         for (i = 0; i < word_table->wordSize; i++)
         {
             if (*(word_table->wordToGuess + i) == *(*input))
+            {
                 *(*progress_word + i) = *(word_table->wordToGuess + i);
+                foundone = 1;
+            }
             else if (*(*progress_word + i) == '_')
                 *(*progress_word + i) = '_';
         }
         if (strcmp(word_table->wordToGuess, *progress_word) == 0)
             return 0;
+        if (foundone)
+            return 1;
     }
     else
         return -2;
