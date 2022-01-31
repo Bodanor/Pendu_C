@@ -79,6 +79,12 @@ int check_input(word_t* word_table, char **input, char **progress_word)
             else if (*(*progress_word + i) == '_')
                 *(*progress_word + i) = '_';
         }
+        if (strcmp(word_table->wordToGuess, *progress_word) == 0)
+            return 0;
     }
+    else
+        return -2;
+        
+    return -1;
 
 }   
