@@ -45,14 +45,21 @@ int main()
     {
         found = 0;
         chooseRandomWord(word_table, &progress_word, &input);
+        printf("%s", word_table->wordToGuess);
         for (tries = 10; tries > 0 && found != 1; tries--)
         {
             printf("\nWord -->\t%s", progress_word);
             printf("\t\tTries left :\t%d", tries);
             printf("\nYour -->\t");
             scanf(" %s", input);
-            if (check_input(word_table, &input, &progress_word) == 0)
+            status = check_input(word_table, &input, &progress_word);
+            if (status == 0)
                 found = 1;
+            else if (status == -2)
+            {
+                printf("Either enter one char our the whole word !\n");
+                tries++;
+            }
 
         }
         if (found)
