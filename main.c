@@ -64,7 +64,10 @@ int main()
         if (found)
             printf("Correct !\n");
         else
+        {
             printf("No more tries !\n");
+            printf("Le mot était : %s\n", word_table->wordToGuess);
+        }
         
         printf("Voulez vous rejouer (o/n)? : ");
         scanf(" %c", input);
