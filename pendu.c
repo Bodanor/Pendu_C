@@ -22,7 +22,7 @@ int initPendu(word_t* word_table)
     return 0;
 
 }
-int chooseRandomWord(word_t* word_table, char **input)
+int chooseRandomWord(word_t* word_table, char **progress_word, char **input)
 {
     assert(word_table != NULL);
     int random = 0, i;
@@ -40,30 +40,45 @@ int chooseRandomWord(word_t* word_table, char **input)
     *input = (char *)malloc(sizeof(char)*word_table->wordSize + 1);
     if (input == NULL)
         return -1;
-
+    
+    *progress_word = (char *)malloc(sizeof(char)*word_table->wordSize + 1);
+    if (progress_word == NULL)
+        return -1;
+    
     for (i = 0; i < word_table->wordSize; i++)
-        *(*input + i) = '_';
+        *(*progress_word + i) = '_';
+
     return 0;
 }
 
-int check_input(word_t* word_table, char **input)
+int check_input(word_t* word_table, char **input, char **progress_word)
 {
     assert(word_table != NULL && input != NULL);
     int i;
 
-    for (i = 0; i < word_table->wordSize; i++)
+    if (strlen(word_table->wordToGuess) == strlen(*input))
     {
-        
-        if (*(*input + i) == *(word_table->wordToGuess + i))
-            *(*input + i) = *(word_table->wordToGuess + i);
+        if (strcmp(word_table->wordToGuess, *input) == 0)
+        {
+            strcpy(*progress_word, word_table->wordToGuess);
+            return 0;
+        }
         else
-            *(*input + i) = '_';
-
+        {
+            for (i = 0; i < word_table->wordSize; i++)
+                *(*progress_word + i) = '_';
+            return -1;
+        }
     }
-    if (strcmp(*input, word_table->wordToGuess) == 0)
-
-        return 0;
-    else
-        return 1;
+    else if (strlen(*input) == 1)
+    {
+        for (i = 0; i < word_table->wordSize; i++)
+        {
+            if (*(word_table->wordToGuess + i) == *(*input))
+                *(*progress_word + i) = *(word_table->wordToGuess + i);
+            else if (*(*progress_word + i) == '_')
+                *(*progress_word + i) = '_';
+        }
+    }
 
 }   

@@ -20,6 +20,6 @@ typedef struct
 
 word_t *createWord_t(OffsetTable_t *);
 int initPendu(word_t *);
-int chooseRandomWord(word_t*, char **);
-int check_input(word_t*, char **);
+int chooseRandomWord(word_t*, char **, char **);
+int check_input(word_t*, char **, char **);
 #endif
